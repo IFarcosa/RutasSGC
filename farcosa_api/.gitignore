@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+!.env.test.example
+node_modules/
+.vscode/
+package-lock.json
+yarn.lock
+data
+.idea
+src/files/**.csv
+dist
+logs/**.log

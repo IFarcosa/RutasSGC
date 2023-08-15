@@ -1,0 +1,11 @@
+version: '1.0.0'
+
+services:
+  app:
+    container_name: farcosa_applet_api_container
+    restart: on-failure
+    build:
+      context: ../
+      dockerfile: ./.docker/DockerFile
+    ports:
+      - '3500:3500'

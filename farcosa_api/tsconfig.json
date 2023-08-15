@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "esModuleInterop": true,
+        "target": "es6",
+        "moduleResolution": "node",
+        "sourceMap": false,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "@config/*": ["./src/config/*"],
+            "@controllers/*": ["./src/controllers/*"],
+            "@schemas/*": ["./src/schemas/*"],
+            "@repository/*": ["./src/repository/*"],
+            "@interface/*": ["./src/interfaces/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@persistence/*": ["./src/persistence/*"],
+            "@service/*": ["./src/service/*"],
+            "@dto/*": ["./src/dto/*"],
+            "@ctypes/*": ["./src/types/*"],
+            "@middleware/*": ["./src/middleware/*"]
+        }
+
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.html"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/persistence/**/migrations/*.ts",
+        "src/persistence/**/seeds/*.ts"
+    ],
+    "lib": [
+        "ES2020"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

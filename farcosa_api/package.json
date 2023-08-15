@@ -1,0 +1,57 @@
+{
+  "name": "farcosa_applet_api",
+  "version": "1.0.0",
+  "main": "src/app.ts",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.20.0",
+    "cors": "2.8.5",
+    "dotenv": "16.0.1",
+    "express": "4.18.1",
+    "express-csp-header": "5.1.0",
+    "jsonwebtoken": "9.0.0",
+    "knex": "2.4.2",
+    "lodash": "4.17.21",
+    "module-alias": "2.2.3",
+    "moment": "2.29.4",
+    "moment-timezone": "0.5.43",
+    "morgan": "^1.10.0",
+    "node-fetch": "2.6.7",
+    "node-file-logger": "^0.9.5",
+    "objection": "3.0.1",
+    "tedious": "16.1.0",
+    "tsconfig-paths": "4.1.0",
+    "typescript": "4.8.4",
+    "zod": "3.20.6"
+  },
+  "scripts": {
+    "start": "node -r tsconfig-paths/register -r ts-node/register src/app.ts",
+    "start:prod": "npm run knex:migrate && npm run start",
+    "start:docker": "docker compose --file ./.docker/docker-compose.yml -p farcosa_applet up --force-recreate --build -d",
+    "knex:seed": "npx knex seed:run --knexfile src/persistence/knexfile.ts",
+    "knex:create:seed": "npx knex seed:make --knexfile src/persistence/knexfile.ts",
+    "knex:create:migration": "npx knex migrate:make -x ts --knexfile src/persistence/knexfile.ts",
+    "knex:migrate": "npx knex migrate:latest --knexfile src/persistence/knexfile.ts",
+    "knex:rollback:migration": "npx knex migrate:rollback --knexfile src/persistence/knexfile.ts",
+    "tests": "jest --config jest.config.js --passWithNoTests",
+    "prettier": "prettier --write src/"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "7.6.0",
+    "@types/cors": "2.8.12",
+    "@types/express": "4.17.13",
+    "@types/jest": "29.2.4",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/lodash": "4.14.184",
+    "@types/module-alias": "^2.0.1",
+    "@types/morgan": "^1.9.4",
+    "jest": "29.3.1",
+    "jest-html-reporter": "3.7.0",
+    "prettier": "2.8.3",
+    "ts-jest": "29.0.5",
+    "ts-node": "10.9.1"
+  },
+  "engines": {
+    "node": "16"
+  }
+}
